@@ -14,10 +14,6 @@ var flagConfig = {
 };
 var flags = minimist(process.argv.slice(2), flagConfig);
 
-/* Docs tasks */
-require('./scripts/docs/gulp-tasks')(gulp, flags);
-
-
 gulp.task("minify:dist", function(){
   gulp.src('./dist/ionic.native.js')
   .pipe(uglify())
@@ -34,16 +30,4 @@ gulp.task('lint', function() {
       configuration: 'tslint.json'
     }))
     .pipe(tslint.report())
-});
-
-gulp.task('plugin:create', function(){
-  if(flags.n && flags.n !== ''){
-    var src = flags.m?'./scripts/templates/wrap-min.tmpl':'./scripts/templates/wrap.tmpl';
-    return gulp.src(src)
-      .pipe(replace('PluginName', flags.n))
-      .pipe(rename(decamelize(flags.n, '-') + '.ts'))
-      .pipe(gulp.dest('./src/plugins/'));
-  } else {
-    console.log("Usage is: gulp plugin:create -n PluginName");
-  }
 });

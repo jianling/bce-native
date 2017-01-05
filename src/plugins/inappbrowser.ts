@@ -80,6 +80,15 @@ export class InAppBrowser {
   close(): void { }
 
   /**
+   * Get cookieValue by key.
+   * @param cookieUrl     The URL of cookie.
+   * @param cookieKey     The key of cookie.
+   * @returns {Promise<any>}
+   */
+  @CordovaInstance()
+  getCookieValue(cookieUrl: string, cookieKey: string): Promise<any> {return; }
+
+  /**
    * Injects JavaScript code into the InAppBrowser window.
    * @param script    Details of the script to run, specifying either a file or code key.
    * @returns {Promise<any>}
