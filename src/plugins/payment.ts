@@ -15,6 +15,9 @@ import { Plugin, Cordova } from './plugin';
 export class Payment {
 
   @Cordova()
-  static pay(signedString: string): Promise<void> { return; }
+  static alipay(signedString: string): Promise<void> { return; }
+
+  @Cordova()
+  static wxpay(param: Object): Promise<void> { return; }
 
 }
