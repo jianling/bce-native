@@ -11,6 +11,8 @@ import { Keyboard } from './plugins/keyboard';
 import { Splashscreen } from './plugins/splashscreen';
 import { StatusBar } from './plugins/statusbar';
 import { Payment } from './plugins/payment';
+import { AppVersion } from './plugins/appversion';
+import { CallNumber } from './plugins/call-number';
 
 export * from './plugins/device';
 export * from './plugins/http';
@@ -19,6 +21,8 @@ export * from './plugins/keyboard';
 export * from './plugins/splashscreen';
 export * from './plugins/statusbar';
 export * from './plugins/payment';
+export * from './plugins/appversion';
+export * from './plugins/call-number';
 
 // Window export to use outside of a module loading system
 window['IonicNative'] = {
@@ -28,7 +32,9 @@ window['IonicNative'] = {
   Keyboard,
   Splashscreen,
   StatusBar,
-  Payment
+  Payment,
+  AppVersion,
+  CallNumber
 };
 
 initAngular1(window['IonicNative']);
