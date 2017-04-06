@@ -15,6 +15,7 @@ import { AppVersion } from './plugins/appversion';
 import { CallNumber } from './plugins/call-number';
 import { NativeStorage } from './plugins/nativestorage';
 import { BDPush } from './plugins/bdpush';
+import { MTJ } from './plugins/mtj';
 
 export * from './plugins/device';
 export * from './plugins/http';
@@ -27,6 +28,7 @@ export * from './plugins/appversion';
 export * from './plugins/call-number';
 export * from './plugins/nativestorage';
 export * from './plugins/bdpush';
+export * from './plugins/mtj';
 
 // Window export to use outside of a module loading system
 window['IonicNative'] = {
@@ -40,7 +42,8 @@ window['IonicNative'] = {
   AppVersion,
   CallNumber,
   NativeStorage,
-  BDPush
+  BDPush,
+  MTJ
 };
 
 initAngular1(window['IonicNative']);
