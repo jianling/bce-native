@@ -2,7 +2,9 @@
 [![NPM](https://nodei.co/npm/bce-native.png?stars&downloads)](https://nodei.co/npm/bce-native/)
 [![NPM](https://nodei.co/npm-dl/bce-native.png?months=6&height=2)](https://nodei.co/npm/bce-native/)
 
-# Ionic Native
+# Bce Native
+
+Bce Native is a subset of Ionic Native.
 
 Ionic Native is a curated set of wrappers for Cordova plugins that make adding any native functionality you need to your [Ionic](http://ionicframework.com/), Cordova, or Web View mobile app easy.
 
