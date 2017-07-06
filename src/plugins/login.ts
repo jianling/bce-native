@@ -3,7 +3,7 @@ import { Plugin, Cordova } from './plugin';
 /**
  * @name baidu login
  * @description
- * Cordova / Phonegap plugin for multi webview
+ * Cordova / Phonegap plugin for baidu login
  */
 @Plugin({
   pluginName: 'Login',
@@ -14,10 +14,10 @@ import { Plugin, Cordova } from './plugin';
 export class Login {
 
   @Cordova()
-  static getCookie(url: string): Promise<void> { return; }
+  static getCookie(url: string): Promise<any> { return; }
 
   @Cordova()
-  static getCookieValue(url: string, cookieName: string): Promise<void> { return; }
+  static getCookieValue(url: string, cookieName: string): Promise<any> { return; }
 
   @Cordova()
   static showLoginView(): void { }
