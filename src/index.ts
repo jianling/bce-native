@@ -4,46 +4,49 @@ const DEVICE_READY_TIMEOUT = 2000;
 
 declare var window;
 
+import { AppVersion } from './plugins/appversion';
+import { BDPush } from './plugins/bdpush';
+import { CallNumber } from './plugins/call-number';
 import { Device } from './plugins/device';
 import { HTTP } from  './plugins/http';
 import { InAppBrowser } from './plugins/inappbrowser';
 import { Keyboard } from './plugins/keyboard';
+import { MTJ } from './plugins/mtj';
+import { Multiview } from './plugins/multiview';
+import { NativeStorage } from './plugins/nativestorage';
+import { Payment } from './plugins/payment';
 import { Splashscreen } from './plugins/splashscreen';
 import { StatusBar } from './plugins/statusbar';
-import { Payment } from './plugins/payment';
-import { AppVersion } from './plugins/appversion';
-import { CallNumber } from './plugins/call-number';
-import { NativeStorage } from './plugins/nativestorage';
-import { BDPush } from './plugins/bdpush';
-import { MTJ } from './plugins/mtj';
 
+export * from './plugins/appversion';
+export * from './plugins/bdpush';
+export * from './plugins/call-number';
 export * from './plugins/device';
 export * from './plugins/http';
 export * from './plugins/inappbrowser';
 export * from './plugins/keyboard';
+export * from './plugins/mtj';
+export * from './plugins/multiview';
+export * from './plugins/nativestorage';
+export * from './plugins/payment';
 export * from './plugins/splashscreen';
 export * from './plugins/statusbar';
-export * from './plugins/payment';
-export * from './plugins/appversion';
-export * from './plugins/call-number';
-export * from './plugins/nativestorage';
-export * from './plugins/bdpush';
-export * from './plugins/mtj';
 
 // Window export to use outside of a module loading system
 window['IonicNative'] = {
+  AppVersion,
+  BDPush,
+  CallNumber,
   Device,
   HTTP,
   InAppBrowser,
   Keyboard,
-  Splashscreen,
-  StatusBar,
-  Payment,
-  AppVersion,
-  CallNumber,
+  MTJ,
+  Multiview,
   NativeStorage,
-  BDPush,
-  MTJ
+  Payment,
+  Splashscreen,
+  StatusBar
 };
 
 initAngular1(window['IonicNative']);

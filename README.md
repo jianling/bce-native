@@ -1,8 +1,6 @@
-[![Circle CI](https://circleci.com/gh/driftyco/ionic-native.svg?style=shield)](https://circleci.com/gh/driftyco/ionic-native) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![npm](https://img.shields.io/npm/l/express.svg)](https://www.npmjs.com/package/ionic-native)
 
-[![NPM](https://nodei.co/npm/ionic-native.png?stars&downloads)](https://nodei.co/npm/ionic-native/)
-[![NPM](https://nodei.co/npm-dl/ionic-native.png?months=6&height=2)](https://nodei.co/npm/ionic-native/)
+[![NPM](https://nodei.co/npm/bce-native.png?stars&downloads)](https://nodei.co/npm/bce-native/)
+[![NPM](https://nodei.co/npm-dl/bce-native.png?months=6&height=2)](https://nodei.co/npm/bce-native/)
 
 # Ionic Native
 
@@ -17,7 +15,7 @@ For the full Ionic Native documentation, please visit [http://ionicframework.com
 Ionic Native wraps plugin callbacks in a Promise or [Observable](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754), providing a common interface for all plugins and ensuring that native events trigger change detection in Angular 2.
 
 ```
-import { Geolocation } from 'ionic-native';
+import { Geolocation } from 'bce-native';
 
 Geolocation.getCurrentPosition().then(pos => {
   console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
@@ -31,65 +29,9 @@ let watch = Geolocation.watchPosition().subscribe(pos => {
 watch.unsubscribe();
 ```
 
-### Angular 1
-
-Ionic Native works as a stand-in for [ngCordova](http://ngcordova.com/). In many cases, the usage is identical, but we import `ionic.native` instead of `ngCordova` as our module.
-
-As a rule of thumb: take the ES6 class name of the plugin and add `$cordova` to get the service name. For example, `Geolocation` would be `$cordovaGeolocation`, and `Camera` will be `$cordovaCamera`:
-
-```javascript
-angular.module('myApp', ['ionic', 'ionic.native'])
-
-.controller('MyCtrl', function($scope, $cordovaCamera) {
-  $scope.takePicture = function() {
-    $cordovaCamera.getPicture(opts).then(function(p) {
-    }, function(err) {
-    });
-  };
-});
-```
-
-For services that return observables, the Angular 1 digest cycle must be done manually (currently):
-
-```javascript
-angular.module('myApp', ['ionic', 'ionic.native'])
-
-.controller('MyCtrl', function($scope, $cordovaGeolocation) {
-  $scope.takePicture = function() {
-    $cordovaGeolocation.watchPosition(opts).subscribe(function(p) {
-      $scope.$apply(function() {
-        $scope.position = p.coords;
-      });
-    }, function(err) {
-    });
-  };
-});
-```
-
-### Runtime Diagnostics
-
-Spent way too long diagnosing an issue only to realize a plugin wasn't firing or installed? Ionic Native lets you know what the issue is and how you can resolve it.
-
-![img](http://ionic-io-assets.s3.amazonaws.com/ionic-native-console.png)
-
 ## Installation
 
 Run following commmand to install ionic-native in your project.
 ```
-npm install ionic-native --save
+npm install bce-native --save
 ```
-
-
-## Plugin Missing?
-Let us know or submit a PR! Take a look at [the Developer Guide](https://github.com/driftyco/ionic-native/blob/master/DEVELOPER.md) for more on how to contribute. :heart:
-
-
-# Credits
-
-Ibrahim Hadeed - [@ihadeed](http://github.com/ihadeed)
-
-Tim Lancina - [@timlancina](http://twitter.com/timlancina)
-
-Max Lynch - [@maxlynch](http://twitter.com/maxlynch)
-
-Rob Wormald - [@robwormald](https://twitter.com/robwormald)
