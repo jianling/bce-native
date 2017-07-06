@@ -11,6 +11,7 @@ import { Device } from './plugins/device';
 import { HTTP } from  './plugins/http';
 import { InAppBrowser } from './plugins/inappbrowser';
 import { Keyboard } from './plugins/keyboard';
+import { Login } from './plugins/login';
 import { MTJ } from './plugins/mtj';
 import { Multiview } from './plugins/multiview';
 import { NativeStorage } from './plugins/nativestorage';
@@ -25,6 +26,7 @@ export * from './plugins/device';
 export * from './plugins/http';
 export * from './plugins/inappbrowser';
 export * from './plugins/keyboard';
+export * from './plugins/login';
 export * from './plugins/mtj';
 export * from './plugins/multiview';
 export * from './plugins/nativestorage';
@@ -41,6 +43,7 @@ window['IonicNative'] = {
   HTTP,
   InAppBrowser,
   Keyboard,
+  Login,
   MTJ,
   Multiview,
   NativeStorage,
