@@ -1,5 +1,6 @@
 import { Cordova, Plugin } from './plugin';
 
+
 export interface CameraOptions {
   /** Picture quality in range 0-100. Default is 50 */
   quality?: number;
@@ -84,66 +85,19 @@ export interface CameraPopoverOptions {
   arrowDir: number;
 }
 
-export enum DestinationType {
-  DATA_URL = 0,
-  FILE_URL,
-  NATIVE_URI
-}
-
-export enum EncodingType {
-  JPEG = 0,
-  PNG
-}
-
-export enum MediaType {
-  PICTURE = 0,
-  VIDEO,
-  ALLMEDIA
-}
-
-export enum PictureSourceType {
-  PHOTOLIBRARY = 0,
-  CAMERA,
-  SAVEDPHOTOALBUM
-}
-
-export enum PopoverArrowDirection {
-  ARROW_UP = 1,
-  ARROW_DOWN,
-  ARROW_LEFT,
-  ARROW_RIGHT,
-  ARROW_ANY
-}
-
-export enum Direction {
-  BACK = 0,
-  FRONT
-}
-
 /**
  * @name Camera
  * @description
  * Take a photo or capture video.
  *
- * Requires and the Cordova plugin: `cordova-plugin-camera`. For more info, please see the [Cordova Camera Plugin Docs](https://github.com/apache/cordova-plugin-camera).
+ * Requires {@link module:driftyco/ionic-native} and the Cordova plugin: `cordova-plugin-camera`. For more info, please see the [Cordova Camera Plugin Docs](https://github.com/apache/cordova-plugin-camera).
  *
  * @usage
  * ```typescript
- * import { Camera, CameraOptions } from '@ionic-native/camera';
- *
- * constructor(private camera: Camera) { }
- *
- * ...
+ * import { Camera } from 'ionic-native';
  *
  *
- * const options: CameraOptions = {
- *   quality: 100,
- *   destinationType: this.camera.DestinationType.DATA_URL,
- *   encodingType: this.camera.EncodingType.JPEG,
- *   mediaType: this.camera.MediaType.PICTURE
- * }
- *
- * this.camera.getPicture(options).then((imageData) => {
+ * Camera.getPicture(options).then((imageData) => {
  *  // imageData is either a base64 encoded string or a file URI
  *  // If it's base64:
  *  let base64Image = 'data:image/jpeg;base64,' + imageData;
@@ -160,14 +114,15 @@ export enum Direction {
   plugin: 'cordova-plugin-camera',
   pluginRef: 'navigator.camera',
   repo: 'https://github.com/apache/cordova-plugin-camera',
-  platforms: ['Android', 'Browser', 'iOS', 'Windows']
+  platforms: ['Android', 'BlackBerry', 'Browser', 'Firefox', 'FireOS', 'iOS', 'Windows', 'Windows Phone 8', 'Ubuntu']
 })
 export class Camera {
 
   /**
-   * Constant for possible destination types
+   * @private
+   * @enum {number}
    */
-  DestinationType = {
+  static DestinationType = {
     /** Return base64 encoded string. DATA_URL can be very memory intensive and cause app crashes or out of memory errors. Use FILE_URI or NATIVE_URI if possible */
     DATA_URL: 0,
     /** Return file uri (content://media/external/images/media/2 for Android) */
@@ -177,19 +132,20 @@ export class Camera {
   };
 
   /**
-   * Convenience constant
+   * @private
+   * @enum {number}
    */
-  EncodingType = {
+  static EncodingType = {
     /** Return JPEG encoded image */
     JPEG: 0,
     /** Return PNG encoded image */
     PNG: 1
   };
-
   /**
-   * Convenience constant
+   * @private
+   * @enum {number}
    */
-  MediaType = {
+  static MediaType = {
     /** Allow selection of still pictures only. DEFAULT. Will return format specified via DestinationType */
     PICTURE: 0,
     /** Allow selection of video only, ONLY RETURNS URL */
@@ -198,11 +154,11 @@ export class Camera {
     ALLMEDIA: 2
   };
 
-
   /**
-   * Convenience constant
+   * @private
+   * @enum {number}
    */
-  PictureSourceType = {
+  static PictureSourceType = {
     /** Choose image from picture library (same as SAVEDPHOTOALBUM for Android) */
     PHOTOLIBRARY: 0,
     /** Take picture from camera */
@@ -211,11 +167,12 @@ export class Camera {
     SAVEDPHOTOALBUM: 2
   };
 
-
   /**
-   * Convenience constant
+   * @private
+   * Matches iOS UIPopoverArrowDirection constants to specify arrow location on popover.
+   * @enum {number}
    */
-  PopoverArrowDirection = {
+  static PopoverArrowDirection = {
     ARROW_UP: 1,
     ARROW_DOWN: 2,
     ARROW_LEFT: 4,
@@ -224,9 +181,10 @@ export class Camera {
   };
 
   /**
-   * Convenience constant
+   * @private
+   * @enum {number}
    */
-  Direction = {
+  static Direction = {
     /** Use the back-facing camera */
     BACK: 0,
     /** Use the front-facing camera */
@@ -235,13 +193,13 @@ export class Camera {
 
   /**
    * Take a picture or video, or load one from the library.
-   * @param {CameraOptions} [options] Options that you want to pass to the camera. Encoding type, quality, etc. Platform-specific quirks are described in the [Cordova plugin docs](https://github.com/apache/cordova-plugin-camera#cameraoptions-errata-).
+   * @param {CameraOptions?} options optional. Options that you want to pass to the camera. Encoding type, quality, etc. Platform-specific quirks are described in the [Cordova plugin docs](https://github.com/apache/cordova-plugin-camera#cameraoptions-errata-).
    * @returns {Promise<any>} Returns a Promise that resolves with Base64 encoding of the image data, or the image file URI, depending on cameraOptions, otherwise rejects with an error.
    */
   @Cordova({
     callbackOrder: 'reverse'
   })
-  getPicture(options?: CameraOptions): Promise<any> { return; }
+  static getPicture(options?: CameraOptions): Promise<any> { return; }
 
   /**
    * Remove intermediate image files that are kept in temporary storage after calling camera.getPicture.
@@ -251,6 +209,6 @@ export class Camera {
   @Cordova({
     platforms: ['iOS']
   })
-  cleanup(): Promise<any> { return; }
+  static cleanup(): Promise<any> { return; };
 
 }
