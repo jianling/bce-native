@@ -17,12 +17,33 @@ export class Login {
   static getCookie(url: string): Promise<any> { return; }
 
   @Cordova()
-  static getCookieValue(url: string, cookieName: string): Promise<any> { return; }
+  static getCookieValue(url: string, cookieKey: string): Promise<any> { return; }
 
   @Cordova()
-  static showLoginView(): void { }
+  static showPASSQRCodeScanViewController(): Promise<any> { return; }
 
   @Cordova()
-  static logout(): void { }
+  static showPASSAccountRealNameViewController(): Promise<any> { return; }
+
+  @Cordova()
+  static showLoginView(): Promise<any> { return; }
+
+  @Cordova()
+  static showPassLoginView(): Promise<any> { return; }
+
+  @Cordova()
+  static showUCLoginView(): Promise<any> { return; }
+
+  @Cordova()
+  static showUCRegisterView(): Promise<any> { return; }
+
+  @Cordova()
+  static ucLoginSuccess(url: Object): Promise<any> { return; }
+
+  @Cordova()
+  static popView(): void { }
+
+  @Cordova()
+  static logout(): Promise<any> { return; }
 
 }
