@@ -19,7 +19,7 @@ import { Plugin, Cordova } from './plugin';
   plugin: 'call-number',
   pluginRef: 'plugins.CallNumber',
   repo: 'https://github.com/Rohfosho/CordovaCallNumberPlugin',
-  platforms: ['iOS', 'Android']
+  platforms: ['Android', 'iOS']
 })
 export class CallNumber {
   /**

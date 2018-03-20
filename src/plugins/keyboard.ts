@@ -17,7 +17,8 @@ import { Observable } from 'rxjs/Observable';
   pluginName: 'Keyboard',
   plugin: 'ionic-plugin-keyboard',
   pluginRef: 'cordova.plugins.Keyboard',
-  repo: 'https://github.com/driftyco/ionic-plugin-keyboard'
+  repo: 'https://github.com/driftyco/ionic-plugin-keyboard',
+  platforms: ['Android', 'iOS']
 })
 export class Keyboard {
 

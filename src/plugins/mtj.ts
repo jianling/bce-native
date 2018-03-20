@@ -10,7 +10,7 @@ import { Plugin, Cordova } from './plugin';
   plugin: 'cordova-plugin-mtj',
   pluginRef: 'mtj',
   repo: '',
-  platforms: ['iOS']
+  platforms: ['Android', 'iOS']
 })
 export class MTJ {
 

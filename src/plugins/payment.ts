@@ -10,7 +10,7 @@ import { Plugin, Cordova } from './plugin';
   plugin: 'cordova-plugin-payment',
   pluginRef: 'Payment',
   repo: '',
-  platforms: ['iOS']
+  platforms: ['Android', 'iOS']
 })
 export class Payment {
 

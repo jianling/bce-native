@@ -10,7 +10,7 @@ import { Plugin, Cordova } from './plugin';
   plugin: 'cordova-plugin-bdpush',
   pluginRef: 'BDPush',
   repo: '',
-  platforms: ['iOS']
+  platforms: ['Android', 'iOS']
 })
 export class BDPush {
 

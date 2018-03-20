@@ -26,7 +26,7 @@ declare var window;
   plugin: 'cordova-plugin-statusbar',
   pluginRef: 'StatusBar',
   repo: 'https://github.com/apache/cordova-plugin-statusbar',
-  platforms: ['iOS', 'Android', 'Windows Phone 8', 'Windows 8', 'Windows 10']
+  platforms: ['Android', 'iOS']
 })
 export class StatusBar {
   /**
