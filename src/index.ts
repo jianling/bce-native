@@ -7,6 +7,7 @@ declare var window;
 import { AppVersion } from './plugins/appversion';
 import { BDPush } from './plugins/bdpush';
 import { CallNumber } from './plugins/call-number';
+import { Camera } from './plugins/camera';
 import { Device } from './plugins/device';
 import { HTTP } from  './plugins/http';
 import { InAppBrowser } from './plugins/inappbrowser';
@@ -22,6 +23,7 @@ import { StatusBar } from './plugins/statusbar';
 export * from './plugins/appversion';
 export * from './plugins/bdpush';
 export * from './plugins/call-number';
+export * from './plugins/camera';
 export * from './plugins/device';
 export * from './plugins/http';
 export * from './plugins/inappbrowser';
@@ -39,6 +41,7 @@ window['IonicNative'] = {
   AppVersion,
   BDPush,
   CallNumber,
+  Camera,
   Device,
   HTTP,
   InAppBrowser,
